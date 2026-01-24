@@ -8,6 +8,7 @@ set -euo pipefail
 PREFIX_FOLDER="$HOME/Desktop/Resumes"
 SOURCE_PDF="/home/lavish/Downloads/JV_s_Resume_Template.pdf"
 RCLONE_REMOTE="gdrive"
+INITITAL_GDRIVE_FOLDER="Resumes/"
 
 #########################
 # Helper functions      #
@@ -94,8 +95,8 @@ fi
 # Upload to Google Drive#
 #########################
 if [[ "$COMMIT_DONE" = true ]]; then
-  log "Uploading to Google Drive: $RCLONE_REMOTE:$GDRIVE_FOLDER ..."
-  rclone copy --progress "$FINAL_FILE" "$RCLONE_REMOTE:$GDRIVE_FOLDER" \
+  log "Uploading to Google Drive: $RCLONE_REMOTE:$INITIAL_GDRIVE_FOLDER$GDRIVE_FOLDER ..."
+  rclone copy --progress "$FINAL_FILE" "$RCLONE_REMOTE:$INITIAL_GDRIVE_FOLDER$GDRIVE_FOLDER" \
     || die "Upload failed. Check rclone configuration."
   log "Upload completed successfully."
 else
