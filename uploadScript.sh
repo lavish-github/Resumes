@@ -8,7 +8,7 @@ set -euo pipefail
 PREFIX_FOLDER="$HOME/Desktop/Resumes"
 SOURCE_PDF="/home/lavish/Downloads/JV_s_Resume_Template.pdf"
 RCLONE_REMOTE="gdrive"
-INITITAL_GDRIVE_FOLDER="Resumes/"
+INITIAL_GDRIVE_FOLDER="Resumes/"
 
 #########################
 # Helper functions      #
@@ -66,7 +66,8 @@ log "New resume saved as: $FINAL_FILE"
 COMMIT_DONE=false
 
 log "Staging changes..."
-git add "$GIVEN_FOLDER/Resume.pdf"
+# git add "$GIVEN_FOLDER/Resume.pdf"
+git add .
 
 if git diff --cached --quiet; then
   warn "No changes detected. Skipping commit."
@@ -106,4 +107,4 @@ fi
 #########################
 # Done                  #
 #########################
-log "Resume sync workflow finished."
+log "\033[32mResume sync workflow finished.\033[0m"
