@@ -107,4 +107,4 @@ fi
 #########################
 # Done                  #
 #########################
-log "\033[32mResume sync workflow finished.\033[0m"
+log "\e[32mResume sync workflow finished.\e[0m"
